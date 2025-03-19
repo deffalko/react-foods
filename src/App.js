@@ -10,6 +10,7 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Category } from "./pages/Category";
 import { NotFound } from "./pages/NotFound";
+import { Recipe } from "./pages/Recipe";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" Component={Home} />
             <Route path="/about" Component={About} />
             <Route path="/category/:name" Component={Category} />
+            <Route path="/meal/:id" Component={Recipe} />
             <Route path="*" Component={NotFound} />
           </Routes>
         </main>
