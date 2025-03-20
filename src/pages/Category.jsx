@@ -5,9 +5,10 @@ import { Preloader } from "../components/Preloader";
 import { MealList } from "../components/MealList";
 
 function Category() {
-  const goBack = useNavigate(-1);
+  const navigate = useNavigate();
   const { name } = useParams();
   const [meals, setMeals] = useState([]);
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     getFilteredCategories(name).then((data) => setMeals(data.meals));
@@ -15,7 +16,7 @@ function Category() {
 
   return (
     <>
-      <button className="btn" onClick={() => goBack(-1)}>
+      <button className="btn" onClick={goBack()}>
         Go Back
       </button>
       {!meals.length ? <Preloader /> : <MealList meals={meals} />}
